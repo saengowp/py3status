@@ -20,6 +20,8 @@ Requires:
         or
     setxkbmap: and `xset` (works for the first two predefined layouts.)
 
+    switching layout requires setxkbmap
+
 Examples:
 ```
 # define keyboard layouts that can be switched between
