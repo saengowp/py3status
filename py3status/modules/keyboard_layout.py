@@ -159,8 +159,9 @@ class Py3status:
     def _set_active(self, delta):
         self._active += delta
         self._active = self._active % len(self._layouts)
-        layout = self._layouts[self._active]
-        self.py3.command_run("setxkbmap -layout {}".format(layout))
+        #Rotate the active layout to the front
+        layouts = self._layouts[self._active:] + self._layouts[:self._active]
+        self.py3.command_run("setxkbmap -layout {}".format(','.join(layouts)))
 
     def on_click(self, event):
         button = event["button"]
